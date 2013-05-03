@@ -1,0 +1,1 @@
+/home/ownclo/bin/gtest_main.cc

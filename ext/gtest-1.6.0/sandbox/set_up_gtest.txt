@@ -1,0 +1,64 @@
+There is a brief instruction on installation and set up of Google Test Framework
+
+I. Get the source code.
+    a) Take it from the arcis server at workspace/cpp/gtest-X.Y.Z
+    b) Download it from the official page
+        | unzip gtest-X.Y.Z.zip 
+        | if you need to.
+
+II. Compile the source.
+    Actually, I do not recommend you to use custom google makefiles for
+    these purposes. Here is a simple g++ command instead.
+        cd gtest-X.Y.Z
+        g++ -I./include -I. -c src/gtest-all.cc -o gtest.bin
+        ar -rv libgtest.a gtest.bin
+
+III. Place all components into proper places
+        sudo cp libgtest.a /usr/lib/
+        sudo cp -r lib/gtest/ /usr/include/
+        cp src/gtest_main.cc ~/bin/
+        | edit the gtest_main.cc file so each #include "gtest/..." becomes
+        |                                     #include <gtest/...>
+        | NB! The correct version of gtest_main.cc can be found on gtest
+        |     source root folder in my arcis server.
+
+IV. Create a gTest testset for your project.
+    Template tests and corresponding projects can be found in samples/ folder.
+        | Edited sample1 project is on gtest sandbox on arcis server.
+
+V. Modify your makefile by adding the test-binary target.
+    Edited makefile for sample1 project is provided below
+    (can be found on arcis server):
+        | objnames = sample1.o
+        | objdir = obj
+        | objects = $(addprefix $(objdir)/, $(objnames))
+        | LD_TST=-lgtest -lpthread
+        | TEST_SUITE=$(objdir)/gtest_main.o $(objdir)/sample1_unittest.o
+        | MAIN_SUITE=$(objdir)/main.o
+        |
+        | all : $(objects) $(MAIN_SUITE)
+        |     $(CXX) $(CPPFLAGS) $+ $(LD_LIB) -o work_main
+        |
+        | $(objdir)/%.o : %.cc %.h
+        |     $(CXX) $(CPPFLAGS) -c $< -o $@
+        |
+        | $(MAIN_SUITE) :
+        |     $(CXX) $(CPPFLAGS) -c main.cc -o $@
+        |
+        | # These two targets needs to be specified for unitTesting
+        | test : $(objects) $(TEST_SUITE)
+        |     $(CXX) $(CPPFLAGS) $+ $(LD_LIB) $(LD_TST) -o allTests
+        |
+        | $(TEST_SUITE) : gtest_main.cc sample1_unittest.cc
+        |     $(CXX) $(CPPFLAGS) -c gtest_main.cc -o $(objdir)/gtest_main.o
+        |     $(CXX) $(CPPFLAGS) -c sample1_unittest.cc -o $(objdir)/sample1_unittest.o
+        |
+        | clean :
+        |     rm -f $(objects) $(MAIN_SUITE) $(TEST_SUITE)
+    Notice the need of adding -lpthread flag in test's library-flags
+
+VI. Add a symlink to the gtest_main.cc file from your project directory, or just
+    copy it instead.
+        ln -s ~/bin/gtest_main.cc
+
+That's it! Happy testing!
