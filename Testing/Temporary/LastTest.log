@@ -1,10 +1,10 @@
-Start testing: May 04 02:12 MSK
+Start testing: May 04 03:08 MSK
 ----------------------------------------------------------
 1/1 Testing: test1
 1/1 Test: test1
 Command: "/home/ownclo/workspace/cpp/google-test-examples/google-test-examples_test"
 Directory: /home/ownclo/workspace/cpp/google-test-examples
-"test1" start time: May 04 02:12 MSK
+"test1" start time: May 04 03:08 MSK
 Output:
 ----------------------------------------------------------
 Running main() from gtest_main.cc
@@ -26,8 +26,8 @@ Running main() from gtest_main.cc
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"test1" end time: May 04 02:12 MSK
+"test1" end time: May 04 03:08 MSK
 "test1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 04 02:12 MSK
+End testing: May 04 03:08 MSK
