@@ -6,13 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/home/ownclo/workspace/cpp/google-test-examples/test/cpp_sorter_test.cpp
-algorithm
--
-cpp_sorter.h
-/home/ownclo/workspace/cpp/google-test-examples/test/cpp_sorter.h
-gtest/gtest.h
-/home/ownclo/workspace/cpp/google-test-examples/test/gtest/gtest.h
-
-include/cpp_sorter.h
-

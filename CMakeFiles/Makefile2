@@ -59,8 +59,8 @@ CMAKE_BINARY_DIR = /home/ownclo/workspace/cpp/google-test-examples
 # Target rules for target CMakeFiles/google-test-examples_test.dir
 
 # All Build rule for target.
-CMakeFiles/google-test-examples_test.dir/all: ext/gtest-1.6.0/CMakeFiles/gtest.dir/all
 CMakeFiles/google-test-examples_test.dir/all: ext/gtest-1.6.0/CMakeFiles/gtest_main.dir/all
+CMakeFiles/google-test-examples_test.dir/all: ext/gtest-1.6.0/CMakeFiles/gtest.dir/all
 	$(MAKE) -f CMakeFiles/google-test-examples_test.dir/build.make CMakeFiles/google-test-examples_test.dir/depend
 	$(MAKE) -f CMakeFiles/google-test-examples_test.dir/build.make CMakeFiles/google-test-examples_test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ownclo/workspace/cpp/google-test-examples/CMakeFiles  1

@@ -31,17 +31,16 @@ set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/ext)
 #-------------------
 # Test
 #-------------------
-add_subdirectory(${EXT_PROJECTS_DIR}/gtest-1.6.0)
+set(GTEST_PATH ${EXT_PROJECTS_DIR}/gtest-1.6.0)
+add_subdirectory(${GTEST_PATH})
 
 add_definitions(${MSVC_COMPILER_DEFS})
 enable_testing()
 set(PROJECT_TEST_NAME ${PROJECT_NAME_STR}_test)
-include_directories(${GTEST_INCLUDE_DIRS} ${COMMON_INCLUDES})
+include_directories(${GTEST_PATH}/include ${COMMON_INCLUDES})
 
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
-#add_dependencies(${PROJECT_TEST_NAME} googletest)
-
 
 if(CMAKE_COMPILER_IS_GNUCXX)
 	target_link_libraries(${PROJECT_TEST_NAME} pthread gtest gtest_main)

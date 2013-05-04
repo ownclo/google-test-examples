@@ -1,2 +1,0 @@
-/home/ownclo/workspace/cpp/google-test-examples/ext/gtest/src/googletest-build/CMakeFiles/gtest.dir
-/home/ownclo/workspace/cpp/google-test-examples/ext/gtest/src/googletest-build/CMakeFiles/gtest_main.dir
